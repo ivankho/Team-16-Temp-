@@ -11,7 +11,7 @@ for line in sys.stdin:
     if adid == 'total':
         TOTAL_CLICK = click
         TOTAL_IMP = imp
-        #assigens total to global variable in order to calculate probabilities for each line instance
+        #assigns totals to global variables so we can calc prob for each line instance
     else:
         no_click = int(imp) - int(click)
         #number of times not clicked
