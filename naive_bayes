@@ -1,1 +1,10 @@
 """naive bayes subproject"""
+import sys
+
+TOTAL_CLICK = 0
+TOTAL_IMP = 0
+
+for line in sys.stdin:
+    adid, click, imp = line.split('\t')
+    TOTAL_ClICK = TOTAL_CLICK + click
+    TOTAL_IMP = TOTAL_IMP + imp
