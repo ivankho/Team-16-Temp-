@@ -1,22 +1,14 @@
 """naive bayes subproject"""
-#assume file is of format adid [tab] click [tab] impression
-#first line of file has adid = 'total' with total clicks and total impressions of set
+#assume file is of format adid [tab] click [tab] impression [tab] total clicks [tab] total impressions
 import sys
 
-TOTAL_CLICK = 0
-TOTAL_IMP = 0
 
 for line in sys.stdin:
-    adid, click, imp = line.split('\t')
-    if adid == 'total':
-        TOTAL_CLICK = click
-        TOTAL_IMP = imp
-        #assigns totals to global variables so we can calc prob for each line instance
-    else:
-        no_click = int(imp) - int(click)
-        #number of times not clicked
-        p_click = click/TOTAL_CLICK
-        #click probability
-        p_noclick = no_click/(TOTAL_IMP-TOTAL_CLICK)
-        #not click probability
+    adid, click, imp, totclick, totimp = line.split('\t')
+    no_click = int(imp) - int(click)
+    #number of times not clicked
+    p_click = click/totclick
+    #click probability
+    p_noclick = no_click/(totimp - totclick)
+    #not click probability
     
