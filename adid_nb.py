@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-
-# what we want to do is to aggregate and find the naive bayes
-# probabilities for our characteristics
 import sys
 
 # mapper 1
@@ -81,14 +78,14 @@ for line in open('reducer2_output.txt'):
 for line in open('reducer1_output.txt'):
     line = line.strip()
     adid, click, imp = line.split('\t')
-    print '%s\t%s\t%s\t%s\t%s' % (adid, click, imp, current_click, current_imp)
+    print '%s\t%s\t%s\t%s\t%s' % (adid, click, imp, total_click, total_imp)
 
 # create mapper for new data file
 # not sure if even necessary...
 for line in sys.stdin:
     line = line.strip()
     adid, click, imp, total_click, total_imp = line.split('\t')
-    print '%s\t%s\t%s\t%s\t%s' % (adid, click, imp, current_click, current_imp)
+    print '%s\t%s\t%s\t%s\t%s' % (adid, click, imp, total_click, total_imp)
 
 # reducer for new data file
 current_adid = None
@@ -100,10 +97,10 @@ for line in sys.stdin:
 
     # convert to numbers
     try:
-        click = int(click)
-        imp = int(imp)
-        total_click = int(total_click)
-        total_imp = int(total_imp)
+        click = float(click)
+        imp = float(imp)
+        total_click = float(total_click)
+        total_imp = float(total_imp)
 
     # move on if bad data
     except ValueError:
