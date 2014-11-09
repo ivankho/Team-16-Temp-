@@ -54,7 +54,7 @@ for line in sys.stdin:
     # remove entrialing white spaces
     line = line.strip()
 
-    adid, click, imp = line.strip('\t')
+    adid, click, imp = line.split('\t')
 
     # turn to numbers
     try:
