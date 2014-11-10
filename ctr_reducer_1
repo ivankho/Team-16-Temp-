@@ -1,0 +1,24 @@
+"""reducer 1"""
+import sys
+
+CURR_USER = None
+CLICK_SUM = 0
+IMP_SUM = 0
+CURR_AGE = None
+USER = None
+
+for line in sys.stdin:
+    line.strip()
+    USER, age, clicks, impress = line.split('\t')
+    if CURR_USER == USER:
+        CLICK_SUM = int(CLICK_SUM) + int(clicks)
+        IMP_SUM = int(IMP_SUM) + int(impress)
+        CURR_AGE = age
+    else:
+        if CURR_USER:
+            print '%s\t%s\t%s\t%s' % (CURR_USER, CURR_AGE, CLICK_SUM, IMP_SUM)
+        CURR_USER = USER
+        CLICK_SUM = clicks
+        IMP_SUM = impress
+if CURR_USER == USER:
+    print '%s\t%s\t%s\t%s' % (CURR_USER, CURR_AGE, CLICK_SUM, IMP_SUM)
