@@ -40,3 +40,4 @@ for line in sys.stdin:
 
 # do not forget to output the last word if needed!
 if current_UserID == UserID:
+    print '%s\t%s\t%s' % (current_UserID, current_clicks, current_impressions)
