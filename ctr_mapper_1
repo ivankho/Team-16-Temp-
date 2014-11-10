@@ -15,7 +15,7 @@ for line in sys.stdin:
             if User == info[11]:
                 Clicks = info[0]
                 Impress = info[1]
-                print '%s\t%s\t%s\t%s' % (User, Age, Clicks, Impress)
+                print '%s\t%s\t%s' % (Age, Clicks, Impress)
     #if instances file entered
     else:
         User = stats[11]
@@ -26,4 +26,4 @@ for line in sys.stdin:
             info = line.split('\t')
             if User == info[0]:
                 Age = info[2]
-                print '%s\t%s\t%s\t%s' % (User, Age, Clicks, Impress)
+                print '%s\t%s\t%s' % (Age, Clicks, Impress)
