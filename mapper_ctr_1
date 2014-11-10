@@ -3,7 +3,7 @@ import sys
 for line in sys.stdin:
     line = line.strip()
     stats = line.split('\t')
-    usertxt = open('user.txt')
+    usertxt = open('userid_profile.txt')
     instancestxt = open('instances.txt')
     #if user file entered
     if len(stats) == 3:
