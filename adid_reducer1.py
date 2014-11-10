@@ -11,7 +11,7 @@ for line in sys.stdin:
     # remove entrailing white spaces
     line = line.strip()
 
-    adid, click, imp = line.strip('\t')
+    adid, click, imp = line.split('\t')
 
     # convert to numbers
     try:
