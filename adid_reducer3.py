@@ -2,8 +2,6 @@
 
 import sys
 
-current_adid = None
-
 for line in sys.stdin:
     # remove entrailing white spaces
     line = line.strip()
@@ -21,18 +19,12 @@ for line in sys.stdin:
         continue
 
     # remember that everything is already aggregated
-    if current_adid == adid:
-        noclick = imp - click
-        total_noclick = total_imp - total_click
-        # calculate probabilities
-        p_click = click/total_click
-        p_noclick = noclick/total_noclick
 
-    else:
-        if current_adid:
-            print '%s\t%s\t%s' % (current_adid, p_click, p_noclick)
-        current_adid = adid
+    noclick = imp - click
+    total_noclick = total_imp - total_click
+    # calculate probabilities
+    p_click = click/total_click
+    p_noclick = noclick/total_noclick
 
-# don't forget final line
-if current_adid:
-    print '%s\t%s\t%s' % (current_adid, p_click, p_noclick)
+
+    print '%s\t%s\t%s' % (adid, p_click, p_noclick)

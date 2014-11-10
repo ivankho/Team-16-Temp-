@@ -2,6 +2,8 @@
 
 import sys
 
+total_click = 0
+total_imp = 0
 
 for line in sys.stdin:
     # remove entrialing white spaces
